@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_auth_buttons/flutter_auth_buttons.dart';
 import 'package:pracproj/reading_page/reading_page.dart';
 
+
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -75,17 +76,17 @@ class HomePage extends StatelessWidget {
   }
 
   Future<void> getClipBoardText(BuildContext context) async {
-    String text = await getData("text/plain");
+    String clipBoardText = await getData("text/plain");
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => ReadingPage(text: text))
+      MaterialPageRoute(builder: (context) => ReadingPage(clipBoardText))
     );
   }
 
     void getTextFile(BuildContext context) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => ReadingPage(text: "Gonna Get Some TExtfiles up in here",)),
+      MaterialPageRoute(builder: (context) => ReadingPage("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",)),
     );
   }
 

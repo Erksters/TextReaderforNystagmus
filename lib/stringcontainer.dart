@@ -1,17 +1,28 @@
+//StringContainer.dart
+//Author: Erick Saenz-Gardea
+//Last Updates: Dec 24, 2019
 
+///This class will create an iterable list for the uploaded novel. 
 class StringContainer{
   List<String> _listGrowable;
   String _currentWord;
   int index = 0;
 
+  ///Constructor
   StringContainer(String novel){
     _listGrowable = novel.split(" ");
     _currentWord = _listGrowable.elementAt(index);
     }
 
+  ///This method will check if we are at the end of the novel. If we are, return false.
+  bool canMoveForward(){
+    if(index< _listGrowable.length - 1) return true;
+    return false;
+  }
+
   ///Will update the current word and the index
   void moveForward(){
-    if(index< _listGrowable.length - 1){
+    if(canMoveForward()){
       index++;
       _currentWord = _listGrowable.elementAt(index);
     }
@@ -31,5 +42,10 @@ class StringContainer{
       index = position;
       _currentWord = _listGrowable.elementAt(index);
     }
+  }
+
+  ///Getter for "_currentWord"
+  String getCurrentWord(){
+    return _currentWord;
   }
 }
